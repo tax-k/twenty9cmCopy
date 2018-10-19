@@ -12,6 +12,8 @@
 		6083195E21780B9600A08920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6083195C21780B9600A08920 /* Main.storyboard */; };
 		6083196021780B9600A08920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6083195F21780B9600A08920 /* Assets.xcassets */; };
 		6083196321780B9600A08920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6083196121780B9600A08920 /* LaunchScreen.storyboard */; };
+		60EF74252179C56300CF67ED /* venom2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60EF74232179C56200CF67ED /* venom2.jpg */; };
+		60EF74262179C56300CF67ED /* venom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60EF74242179C56200CF67ED /* venom.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		6083195F21780B9600A08920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6083196221780B9600A08920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6083196421780B9600A08920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60EF74232179C56200CF67ED /* venom2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = venom2.jpg; sourceTree = "<group>"; };
+		60EF74242179C56200CF67ED /* venom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = venom.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				6083195821780B9600A08920 /* AppDelegate.swift */,
 				6083195A21780B9600A08920 /* ViewController.swift */,
 				6083195C21780B9600A08920 /* Main.storyboard */,
+				60EF74242179C56200CF67ED /* venom.jpg */,
+				60EF74232179C56200CF67ED /* venom2.jpg */,
 				6083195F21780B9600A08920 /* Assets.xcassets */,
 				6083196121780B9600A08920 /* LaunchScreen.storyboard */,
 				6083196421780B9600A08920 /* Info.plist */,
@@ -123,7 +129,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60EF74252179C56300CF67ED /* venom2.jpg in Resources */,
 				6083196321780B9600A08920 /* LaunchScreen.storyboard in Resources */,
+				60EF74262179C56300CF67ED /* venom.jpg in Resources */,
 				6083196021780B9600A08920 /* Assets.xcassets in Resources */,
 				6083195E21780B9600A08920 /* Main.storyboard in Resources */,
 			);

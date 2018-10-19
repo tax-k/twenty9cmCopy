@@ -17,11 +17,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
-    let scrollViewData = [scrollViewDataStruct]()
+    var scrollViewData = [scrollViewDataStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        scrollViewData = [scrollViewDataStruct.init(title: "pic1", image: UIImage(named: "venom")),
+                          scrollViewDataStruct.init(title: "pic2", image: UIImage(named: "venom2"))]
+        
+        for name in scrollViewData {
+            
+        }
+        
     }
     
     /// set horizontal gesture to control Seek
