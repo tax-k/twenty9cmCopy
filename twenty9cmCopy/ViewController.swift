@@ -22,11 +22,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        scrollViewData = [scrollViewDataStruct.init(title: "pic1", image: UIImage(named: "venom")),
-                          scrollViewDataStruct.init(title: "pic2", image: UIImage(named: "venom2"))]
+        scrollViewData = [scrollViewDataStruct.init(title: "pic1", image: #imageLiteral(resourceName: "venom.jpg")),
+                          scrollViewDataStruct.init(title: "pic2", image: #imageLiteral(resourceName: "venom2.jpg"))]
         
-        for name in scrollViewData {
+        scrollView.contentSize.width = self.scrollView.frame.width * CGFloat(scrollViewData.count)
+        var i = 0
+        for data in scrollViewData {
+           
+            let view = CustomView(frame: CGRect(x: 10 + (self.scrollView.frame.width * CGFloat(i)), y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height))
+            view.imageView.image = data.image
+            self.scrollView.addSubview(view)
             
+            i += 1
         }
         
     }
@@ -41,7 +48,8 @@ class CustomView: UIView {
     let imageView:UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.blue
+        imageView.backgroundColor = UIColor.darkGray
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
