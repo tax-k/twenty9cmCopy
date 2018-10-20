@@ -13,25 +13,46 @@ struct scrollViewDataStruct {
     let image:UIImage?
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var scrollView: UIScrollView!
     
     var scrollViewData = [scrollViewDataStruct]()
+    var viewTagVal = 10
+    var tagValue = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        scrollViewData = [scrollViewDataStruct.init(title: "pic1", image: #imageLiteral(resourceName: "venom.jpg")),
-                          scrollViewDataStruct.init(title: "pic2", image: #imageLiteral(resourceName: "venom2.jpg"))]
+        
+        scrollView.delegate = self
+        scrollViewData = [scrollViewDataStruct.init(title: "Venom Poster1", image: #imageLiteral(resourceName: "venom.jpg")),
+                          scrollViewDataStruct.init(title: "Venom Poster2", image: #imageLiteral(resourceName: "venom2.jpg"))]
         
         scrollView.contentSize.width = self.scrollView.frame.width * CGFloat(scrollViewData.count)
+        scrollView.backgroundColor = UIColor.lightGray
         var i = 0
         for data in scrollViewData {
            
-            let view = CustomView(frame: CGRect(x: 10 + (self.scrollView.frame.width * CGFloat(i)), y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height))
+            let view = CustomView(frame: CGRect(x: (self.scrollView.frame.width * CGFloat(i)), y: 80, width: self.scrollView.frame.width, height: self.scrollView.frame.height))
+            view.tag = i + viewTagVal
             view.imageView.image = data.image
             self.scrollView.addSubview(view)
+            
+            let label = UILabel(frame: CGRect.init(origin: CGPoint.init(x: view.center.x, y: 200), size: CGSize.init(width: 0, height: 40)))
+            label.text = data.title
+            label.font = UIFont.boldSystemFont(ofSize: 20)
+            label.textColor = UIColor.white
+            label.tag =  i + tagValue
+            label.sizeToFit()
+            
+            if i == 0 {
+                label.center.x = view.center.x
+            }else {
+                label.center.x = view.center.x - self.scrollView.frame.width / 2
+            }
+            
+            self.scrollView.addSubview(label)
             
             i += 1
         }
@@ -42,6 +63,19 @@ class ViewController: UIViewController {
     ///
     /// - Parameter: (recognizer: PangestureRecognizer)
     /// - Returns: nope
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == scrollView {
+            for i in 0..<scrollViewData.count {
+                let label = scrollView.viewWithTag(i+tagValue) as! UILabel
+                let view = scrollView.viewWithTag(i + viewTagVal) as! CustomView
+                let scrollContentOffset = scrollView.contentOffset.x + self.scrollView.frame.width
+                
+                var viewOffset = (view.center.x - scrollView.bounds.width / 4 ) - scrollContentOffset
+                label.center.x = scrollContentOffset - ((scrollView.bounds.width / 4 - viewOffset) / 2)
+            }
+        }
+    }
 }
 
 class CustomView: UIView {
