@@ -31,7 +31,14 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         
         scrollView.contentSize.width = self.scrollView.frame.width * CGFloat(scrollViewData.count)
         scrollView.backgroundColor = UIColor.lightGray
+        
+        
+        /// set Scroll Data Dynamically
+        ///
+        /// - Parameter: nope
+        /// - Returns: nope
         var i = 0
+        
         for data in scrollViewData {
            
             let view = CustomView(frame: CGRect(x: (self.scrollView.frame.width * CGFloat(i)), y: 80, width: self.scrollView.frame.width, height: self.scrollView.frame.height))
@@ -59,9 +66,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         
     }
     
-    /// set horizontal gesture to control Seek
+    /// set Scroll Delegate to interaction horizontally
     ///
-    /// - Parameter: (recognizer: PangestureRecognizer)
+    /// - Parameter: (scrollView: UIScrollView)
     /// - Returns: nope
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -77,6 +84,8 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         }
     }
 }
+
+
 
 class CustomView: UIView {
     let imageView:UIImageView = {
